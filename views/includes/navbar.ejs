@@ -1,0 +1,186 @@
+<style>
+  .btn-search{
+    background-color: #FE424D;
+    color: white;
+    border-radius: 25px;
+  }
+
+  .btn-search:hover{
+    background-color: #FE424D;
+    color: white;
+  }
+
+  .btn-search i{
+    display: inline;
+  }
+
+  .search-inp{
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem; 
+    border: 0.5px solid #ababab;
+  }
+   
+  .create{
+    margin: 1rem;
+    transition: .1s linear;
+  }
+
+  .create span{
+    font-weight: 500;
+    margin-right: 0.3vw;
+  }
+
+  .create:hover{
+    scale: 1.03;
+  }
+
+  .open{
+    display: flex;
+    overflow: visible;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+  }
+
+  .user{
+    font-size: 32px;
+    margin: .4rem;
+    color: #eb6972;
+    transition: .2s ease-in-out;
+  }
+
+  .user:hover{
+    scale: 1.1;
+    border-radius: 50%;
+    color: #eb6972;
+    box-shadow: 0px 0px 10px rgba(242, 126, 126, 0.5);
+  }
+  
+  .shw{
+    display: flex;
+    width: 7vw;
+    align-items: center;
+    gap: .7vw;
+    background-color: transparent;
+    justify-content: center;
+    border: 1px solid rgb(170, 164, 164);
+    border-radius: 25px;
+    padding-left: .5vw;
+    transition: .1s linear;
+  }
+
+  .shw:hover{
+    scale: 1.05;
+    box-shadow: 0px 3px 0px 1px rgba(227, 222, 222, 0.5);
+  }
+
+  .log{
+    position: absolute;
+    margin-top: 25vh;
+    margin-right: 8vw;
+    height: 15vh;
+    width: 10vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(180, 180, 180, 0.5);
+    border-radius: 5px;
+    align-items: center;
+  }
+
+  .ind{
+    display: inline;
+    color: black;
+    margin-left: 2vw;
+    background-color: #ffffff;
+    width: 27vw;
+    height: 7vh;
+    transition: .1s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    border: none;
+    text-align: center;
+  }
+
+  .ind:hover{
+    scale: 1.02;
+  }
+
+  .ind i{
+    color: #FE424D;
+    font-size: 22px;
+  }
+
+  .ind p{
+    text-align: center;
+    padding-top: 3vh;
+    font-size: 18px;
+  }
+</style>
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><i class="fa-solid fa-plane-departure"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <!-- <a class="nav-link" href="/listings">Explore</a> -->
+          <form action="/toggle-dataset" method="POST" style="display: inline;">
+            <button type="submit" class="ind">
+              <i class="fa-solid fa-globe"></i> <p>Explore <%= typeof currentDataset !== 'undefined' && currentDataset === 'international' ? 'India' : 'International' %></p>
+            </button>
+          </form>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <form class="d-flex" role="search" action="/listings/search" method="GET">
+            <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" name="q">
+            <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link create" href="/listings/new"><span>Gharसफ़र </span>Your Home</a>
+          <div class="open">
+            <div id="us" class="shw">
+            <i class="fa-solid fa-bars"></i>
+            <i  class="user fa-solid fa-circle-user"></i>
+            </div>
+            <div id="op" class="log">
+          <% if(!currUser) { %>
+            <a class="nav-link" href="/signup">Sign up</a>
+            <a class="nav-link" href="/login">Log in</a> 
+          <% } %>
+          <% if(currUser) { %>
+          <a class="nav-link" href="/logout">Log out</a>
+          <a class="nav-link" href="#f">Contact Us</a>
+          <% } %>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<script>
+  let us = document.getElementById("us");
+  let box = document.getElementById("op");
+  
+  us.addEventListener('click', (event) => {
+      event.stopPropagation();
+      box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  document.addEventListener('click', (event) => {
+      if (!box.contains(event.target) && event.target !== us) {
+          box.style.display = 'none';
+      }
+  });
+  
+</script>  
