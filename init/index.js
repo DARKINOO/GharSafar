@@ -3,7 +3,7 @@ const Listing = require("../models/Schema.js");
 const initData = require("../init/data.js");
 const indiaData = require("../init/indiaData.js");
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/dheavens";
+// const MONGO_URL = "mongodb://127.0.0.1:27017/dheavens";
 
 // main()
 // .then( ()=> {
