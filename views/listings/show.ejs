@@ -118,6 +118,55 @@
     padding-left: 1vw;
     padding-bottom: 1vh;
   }
+
+  @media (max-width: 768px) {
+    .display {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .right {
+        width: 100%;
+        margin-top: 2vh;
+        height: auto;
+    }
+
+    .icard {
+        max-width: 100%;
+    }
+
+    .icard img {
+        height: auto;
+        max-height: 40vh;
+    }
+
+    .review {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .lrev {
+        width: 100%;
+    }
+
+    .rrev {
+        width: 100%;
+        margin-left: 0;
+        padding-right: 0;
+    }
+
+    .cs {
+        grid-template-columns: 1fr;
+    }
+
+    .cb {
+        width: 100%;
+    }
+}
 </style>
 
 

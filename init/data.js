@@ -34,7 +34,7 @@ const sampleListings = [
     description: "Experience the charm of Tuscany in this beautifully restored villa. Explore the rolling hills and vineyards.",
     image: { url: "https://images.unsplash.com/photo-1719299224546-be36a6c71832?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGhpc3RvcmljJTIwdmlsbGF8ZW58MHx8MHx8fDA%3D",
     },
-    price: 2500,
+    price: 25000,
     location: "Florence",
     country: "Italy",
     reviews: []
